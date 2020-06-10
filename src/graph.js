@@ -25,14 +25,14 @@ const bfs = function(pairs,source,target){
     let currSource = queue.shift();
     let listToSearch = adjacencyList[currSource] || [];
     listToSearch.forEach(element => {
-      if (element===target) {
-        found = true;
-      }
-      if (!(queue.includes(element))) {
+      if (!(queue.includes(element) || visited.includes(element))) {
         queue.push(element);
       }
     });
     visited.push(currSource);
+    if (queue.includes(target)) {
+      found = true;
+    }
   }
   return found;
 };
