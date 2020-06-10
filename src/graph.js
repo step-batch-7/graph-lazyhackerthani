@@ -29,10 +29,8 @@ const bfs = function(pairs,source,target){
         queue.push(element);
       }
     });
+    found = queue.includes(target);
     visited.push(currSource);
-    if (queue.includes(target)) {
-      found = true;
-    }
   }
   return found;
 };
