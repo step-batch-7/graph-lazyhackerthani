@@ -17,10 +17,10 @@ const getAdjacentList = function (pairs) {
 }
 
 const bfs = function(pairs,source,target){
-  const visited = [];
-  const queue = [source];
-  let found = false;
   const adjacencyList = getAdjacentList(pairs);
+  const visited = [];
+  const queue = [...adjacencyList[source]];
+  let found = false;
   while (queue.length > 0 && found === false){
     let currSource = queue.shift();
     let listToSearch = adjacencyList[currSource] || [];
