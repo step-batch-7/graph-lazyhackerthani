@@ -24,12 +24,12 @@ const bfs = function(pairs,source,target){
   while (queue.length > 0 && found === false){
     let currSource = queue.shift();
     let listToSearch = adjacencyList[currSource] || [];
+    found = listToSearch.includes(target);
     listToSearch.forEach(element => {
       if (!(queue.includes(element)) && !(visited.includes(element))) {
         queue.push(element);
       }
     });
-    found = queue.includes(target);
     visited.push(currSource);
   }
   return found;
